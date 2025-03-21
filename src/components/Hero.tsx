@@ -3,142 +3,18 @@ import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, Twitter, ExternalLink, Code, Database, MessageSquare } from 'lucide-react';
 import { useSmoothScroll } from '@/lib/animations';
-import { useEffect, useRef } from 'react';
 
 const Hero = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
   const { scrollTo } = useSmoothScroll();
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  // Space background animation effect
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    // Set canvas dimensions
-    const setCanvasDimensions = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    
-    // Initialize canvas
-    setCanvasDimensions();
-    window.addEventListener('resize', setCanvasDimensions);
-    
-    // Stars properties
-    const stars: {x: number, y: number, radius: number, speed: number, opacity: number}[] = [];
-    const numStars = 200;
-    
-    // Create stars
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5,
-        speed: Math.random() * 0.05 + 0.01,
-        opacity: Math.random() * 0.5 + 0.3
-      });
-    }
-    
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Gradient background
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, 'rgba(16, 24, 39, 1)');
-      gradient.addColorStop(1, 'rgba(28, 35, 51, 1)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw stars
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
-        
-        // Update star position for next frame
-        star.y += star.speed;
-        
-        // Reset star if it goes off canvas
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-      });
-      
-      // Occasional shooting star
-      if (Math.random() < 0.02) {
-        const shootingStar = {
-          x: Math.random() * canvas.width,
-          y: 0,
-          length: Math.random() * 100 + 50,
-          speed: Math.random() * 15 + 10,
-          angle: Math.PI / 4
-        };
-        
-        const drawShootingStar = () => {
-          const tail = {
-            x: shootingStar.x - Math.cos(shootingStar.angle) * shootingStar.length,
-            y: shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.length
-          };
-          
-          // Create gradient for shooting star
-          const gradient = ctx.createLinearGradient(
-            shootingStar.x, shootingStar.y,
-            tail.x, tail.y
-          );
-          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-          gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-          
-          ctx.beginPath();
-          ctx.moveTo(shootingStar.x, shootingStar.y);
-          ctx.lineTo(tail.x, tail.y);
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-          
-          // Update position
-          shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
-          shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
-          
-          // Continue animation if still on screen
-          if (shootingStar.x < canvas.width && shootingStar.y < canvas.height) {
-            requestAnimationFrame(drawShootingStar);
-          }
-        };
-        
-        drawShootingStar();
-      }
-      
-      requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    return () => {
-      window.removeEventListener('resize', setCanvasDimensions);
-    };
-  }, []);
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden">
-      {/* Space Canvas Background */}
-      <canvas 
-        ref={canvasRef} 
-        className="absolute inset-0 -z-10"
-        style={{ filter: 'blur(1px)' }}
-      />
-      
       {/* Floating planetary elements */}
       <div className="absolute inset-0 -z-5">
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/10 rounded-full opacity-50 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/10 rounded-full opacity-40 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/10 rounded-full opacity-30 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-50 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/20 rounded-full opacity-40 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/20 rounded-full opacity-30 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
       </div>
       
       <div 

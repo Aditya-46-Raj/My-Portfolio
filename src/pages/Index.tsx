@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import BackgroundCanvas from '@/components/BackgroundCanvas';
 
 const Index = () => {
   useEffect(() => {
@@ -21,9 +22,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Main background canvas that covers the entire page */}
+      <BackgroundCanvas />
+      
       <NavBar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Projects />
