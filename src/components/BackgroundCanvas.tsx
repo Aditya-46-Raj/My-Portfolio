@@ -41,19 +41,19 @@ const BackgroundCanvas = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Dark gradient background
+      // Dark gradient background - DARKENED CONSIDERABLY
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, 'rgba(10, 15, 30, 1)'); // Darker blue
-      gradient.addColorStop(0.5, 'rgba(20, 25, 45, 1)'); // Mid-tone
-      gradient.addColorStop(1, 'rgba(15, 20, 40, 1)'); // Slightly lighter at bottom
+      gradient.addColorStop(0, 'rgba(5, 10, 20, 1)'); // Much darker blue
+      gradient.addColorStop(0.5, 'rgba(10, 15, 30, 1)'); // Darker mid-tone
+      gradient.addColorStop(1, 'rgba(8, 12, 25, 1)'); // Darker bottom
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Draw stars
+      // Draw stars - Made brighter
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity + 0.2})`; // Increased brightness
         ctx.fill();
         
         // Update star position for next frame
@@ -82,12 +82,12 @@ const BackgroundCanvas = () => {
             y: shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.length
           };
           
-          // Create gradient for shooting star
+          // Create gradient for shooting star - Made brighter
           const gradient = ctx.createLinearGradient(
             shootingStar.x, shootingStar.y,
             tail.x, tail.y
           );
-          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)'); // Brighter
           gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
           
           ctx.beginPath();
@@ -110,19 +110,19 @@ const BackgroundCanvas = () => {
         drawShootingStar();
       }
       
-      // Draw nebulae (colored clouds)
+      // Draw nebulae (colored clouds) - Made more visible
       for (let i = 0; i < 5; i++) {
         const radius = Math.random() * 150 + 50;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
         
-        // Create radial gradient for nebula
+        // Create radial gradient for nebula - Increased opacity
         const colors = [
-          ['rgba(255, 100, 100, 0.05)', 'rgba(255, 100, 100, 0)'],  // Red
-          ['rgba(100, 100, 255, 0.05)', 'rgba(100, 100, 255, 0)'],  // Blue
-          ['rgba(180, 100, 255, 0.05)', 'rgba(180, 100, 255, 0)'],  // Purple
-          ['rgba(100, 255, 100, 0.05)', 'rgba(100, 255, 100, 0)'],  // Green
-          ['rgba(255, 200, 100, 0.05)', 'rgba(255, 200, 100, 0)']   // Orange
+          ['rgba(255, 100, 100, 0.08)', 'rgba(255, 100, 100, 0)'],  // Red
+          ['rgba(100, 100, 255, 0.08)', 'rgba(100, 100, 255, 0)'],  // Blue
+          ['rgba(180, 100, 255, 0.08)', 'rgba(180, 100, 255, 0)'],  // Purple
+          ['rgba(100, 255, 100, 0.08)', 'rgba(100, 255, 100, 0)'],  // Green
+          ['rgba(255, 200, 100, 0.08)', 'rgba(255, 200, 100, 0)']   // Orange
         ];
         
         const colorSet = colors[Math.floor(Math.random() * colors.length)];
