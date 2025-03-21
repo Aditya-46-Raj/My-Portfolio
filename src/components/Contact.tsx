@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, Mail, Send } from 'lucide-react';
-import { toast } from '@/components/ui/sonner';
+import { toast } from 'sonner'; // Changed from '@/components/ui/sonner' to 'sonner'
 
 const Contact = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
