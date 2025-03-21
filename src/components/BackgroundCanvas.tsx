@@ -23,17 +23,63 @@ const BackgroundCanvas = () => {
     window.addEventListener('resize', setCanvasDimensions);
     
     // Stars properties
-    const stars: {x: number, y: number, radius: number, speed: number, opacity: number}[] = [];
+    const stars: {x: number, y: number, radius: number, speed: number, opacity: number, color: string}[] = [];
     const numStars = 300; // More stars for better effect
+    
+    // Star colors with vibrant and pastel options
+    const starColors = [
+      'rgba(255, 255, 255, 1)',     // White
+      'rgba(173, 216, 230, 1)',     // Light blue (pastel)
+      'rgba(255, 182, 193, 1)',     // Light pink (pastel)
+      'rgba(255, 240, 180, 1)',     // Light yellow (pastel)
+      'rgba(211, 211, 255, 1)',     // Light purple (pastel)
+      'rgba(152, 251, 152, 1)',     // Light green (pastel)
+      'rgba(135, 206, 250, 1)',     // Sky blue (vibrant)
+      'rgba(250, 128, 114, 0.9)',   // Salmon (vibrant)
+      'rgba(238, 130, 238, 0.9)',   // Violet (vibrant)
+      'rgba(255, 215, 0, 0.9)',     // Gold (vibrant)
+      'rgba(127, 255, 212, 0.9)',   // Aquamarine (vibrant)
+    ];
     
     // Create stars
     for (let i = 0; i < numStars; i++) {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1.8, // Slightly larger stars
-        speed: Math.random() * 0.05 + 0.01,
-        opacity: Math.random() * 0.7 + 0.3 // Brighter stars
+        radius: Math.random() * 1.8 + 0.2, // Slightly larger stars
+        speed: Math.random() * 0.035 + 0.01, // Reduce maximum speed to lower flickering
+        opacity: Math.random() * 0.5 + 0.5, // Increased minimum opacity for less flickering
+        color: starColors[Math.floor(Math.random() * starColors.length)]
+      });
+    }
+    
+    // Nebula colors with vibrant and pastel options
+    const nebulaColors = [
+      // Pastel nebulae
+      ['rgba(255, 182, 193, 0.15)', 'rgba(255, 182, 193, 0)'], // Light pink
+      ['rgba(173, 216, 230, 0.15)', 'rgba(173, 216, 230, 0)'], // Light blue
+      ['rgba(152, 251, 152, 0.15)', 'rgba(152, 251, 152, 0)'], // Light green
+      ['rgba(230, 230, 250, 0.15)', 'rgba(230, 230, 250, 0)'], // Lavender
+      ['rgba(255, 228, 196, 0.15)', 'rgba(255, 228, 196, 0)'], // Bisque
+      
+      // Vibrant nebulae
+      ['rgba(255, 105, 180, 0.12)', 'rgba(255, 105, 180, 0)'], // Hot pink
+      ['rgba(138, 43, 226, 0.12)', 'rgba(138, 43, 226, 0)'],   // Blue violet
+      ['rgba(50, 205, 50, 0.12)', 'rgba(50, 205, 50, 0)'],     // Lime green
+      ['rgba(255, 69, 0, 0.12)', 'rgba(255, 69, 0, 0)'],       // Orange red
+      ['rgba(30, 144, 255, 0.12)', 'rgba(30, 144, 255, 0)'],   // Dodger blue
+    ];
+    
+    // Create persistent nebulae to avoid constant re-randomization (reduces flickering)
+    const persistentNebulae = [];
+    const numNebulae = 10; // Increase number of nebulae
+    
+    for (let i = 0; i < numNebulae; i++) {
+      persistentNebulae.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 250 + 100,
+        colorSet: nebulaColors[Math.floor(Math.random() * nebulaColors.length)]
       });
     }
     
@@ -41,19 +87,33 @@ const BackgroundCanvas = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Dark gradient background - DARKENED CONSIDERABLY
+      // Dark gradient background with a touch of color
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, 'rgba(5, 10, 20, 1)'); // Much darker blue
-      gradient.addColorStop(0.5, 'rgba(10, 15, 30, 1)'); // Darker mid-tone
-      gradient.addColorStop(1, 'rgba(8, 12, 25, 1)'); // Darker bottom
+      gradient.addColorStop(0, 'rgba(5, 10, 20, 1)'); // Dark blue
+      gradient.addColorStop(0.4, 'rgba(12, 15, 35, 1)'); // Midnight blue
+      gradient.addColorStop(0.7, 'rgba(20, 10, 30, 1)'); // Dark purple
+      gradient.addColorStop(1, 'rgba(10, 12, 25, 1)'); // Dark blue-purple
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Draw stars - Made brighter
+      // Draw persistent nebulae first (in background)
+      persistentNebulae.forEach(nebula => {
+        const nebulaGradient = ctx.createRadialGradient(
+          nebula.x, nebula.y, 0, 
+          nebula.x, nebula.y, nebula.radius
+        );
+        nebulaGradient.addColorStop(0, nebula.colorSet[0]);
+        nebulaGradient.addColorStop(1, nebula.colorSet[1]);
+        
+        ctx.fillStyle = nebulaGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      });
+      
+      // Draw stars with their unique colors
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity + 0.2})`; // Increased brightness
+        ctx.fillStyle = star.color;
         ctx.fill();
         
         // Update star position for next frame
@@ -66,14 +126,15 @@ const BackgroundCanvas = () => {
         }
       });
       
-      // Occasional shooting star
-      if (Math.random() < 0.03) { // Increase probability for more shooting stars
+      // Occasional shooting star (reduced probability to lower flickering)
+      if (Math.random() < 0.02) {
         const shootingStar = {
           x: Math.random() * canvas.width,
           y: 0,
-          length: Math.random() * 100 + 50,
-          speed: Math.random() * 15 + 10,
-          angle: Math.PI / 4
+          length: Math.random() * 120 + 80,
+          speed: Math.random() * 10 + 5, // Reduced speed for less flickering
+          angle: Math.PI / 4,
+          color: starColors[Math.floor(Math.random() * starColors.length)].replace('1)', '0.9)') // Use star colors
         };
         
         const drawShootingStar = () => {
@@ -82,13 +143,13 @@ const BackgroundCanvas = () => {
             y: shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.length
           };
           
-          // Create gradient for shooting star - Made brighter
+          // Create gradient for shooting star with the selected color
           const gradient = ctx.createLinearGradient(
             shootingStar.x, shootingStar.y,
             tail.x, tail.y
           );
-          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)'); // Brighter
-          gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          gradient.addColorStop(0, shootingStar.color);
+          gradient.addColorStop(1, shootingStar.color.replace('0.9)', '0)'));
           
           ctx.beginPath();
           ctx.moveTo(shootingStar.x, shootingStar.y);
@@ -108,30 +169,6 @@ const BackgroundCanvas = () => {
         };
         
         drawShootingStar();
-      }
-      
-      // Draw nebulae (colored clouds) - Made more visible
-      for (let i = 0; i < 5; i++) {
-        const radius = Math.random() * 150 + 50;
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        
-        // Create radial gradient for nebula - Increased opacity
-        const colors = [
-          ['rgba(255, 100, 100, 0.08)', 'rgba(255, 100, 100, 0)'],  // Red
-          ['rgba(100, 100, 255, 0.08)', 'rgba(100, 100, 255, 0)'],  // Blue
-          ['rgba(180, 100, 255, 0.08)', 'rgba(180, 100, 255, 0)'],  // Purple
-          ['rgba(100, 255, 100, 0.08)', 'rgba(100, 255, 100, 0)'],  // Green
-          ['rgba(255, 200, 100, 0.08)', 'rgba(255, 200, 100, 0)']   // Orange
-        ];
-        
-        const colorSet = colors[Math.floor(Math.random() * colors.length)];
-        const nebula = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        nebula.addColorStop(0, colorSet[0]);
-        nebula.addColorStop(1, colorSet[1]);
-        
-        ctx.fillStyle = nebula;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
       
       requestAnimationFrame(animate);
