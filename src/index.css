@@ -128,6 +128,10 @@
   .tag {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
   }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
 }
 
 /* Custom animations */
@@ -189,4 +193,79 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 400ms, transform 400ms;
+}
+
+/* New Animations and Effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Hover effects */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Glow effects */
+.glow {
+  box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 20px rgba(66, 153, 225, 0.8);
+}
+
+/* Particle animation for canvas elements */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

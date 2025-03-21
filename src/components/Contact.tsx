@@ -4,7 +4,7 @@ import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, Twitter, Database, Code, MessageSquare } from 'lucide-react';
 import { toast } from 'sonner'; // Changed from '@/components/ui/sonner' to 'sonner'
 
 const Contact = () => {
@@ -35,19 +35,26 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding px-6 md:px-10 relative overflow-hidden">
+      {/* Background elements for Contact section */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-100 rounded-full opacity-20 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-purple-100 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-3/4 left-1/3 w-60 h-60 bg-teal-100 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+      </div>
+      
       <div className="max-w-6xl mx-auto">
         <div 
           ref={ref}
-          className={`transition-opacity duration-700 delay-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="tag bg-gray-100 mb-4">Contact</div>
+          <div className="tag bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 mb-4 backdrop-blur-sm">Contact</div>
           <h2 className="heading-lg mb-4">Get in Touch</h2>
           <p className="body-md text-gray-600 max-w-2xl mb-12">
             Have a question or want to work together? Feel free to reach out!
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="glass-morphism rounded-xl p-8">
+            <div className="glass-morphism rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -60,7 +67,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full"
+                    className="w-full transition-all focus:ring-2 focus:ring-blue-500/50"
                   />
                 </div>
                 
@@ -76,7 +83,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full"
+                    className="w-full transition-all focus:ring-2 focus:ring-blue-500/50"
                   />
                 </div>
                 
@@ -91,14 +98,14 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full min-h-[120px]"
+                    className="w-full min-h-[120px] transition-all focus:ring-2 focus:ring-blue-500/50"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full rounded-full"
+                  className="w-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'} 
                   <Send className="ml-2 h-4 w-4" />
@@ -108,13 +115,13 @@ const Contact = () => {
             
             <div className="space-y-8">
               <div>
-                <h3 className="heading-sm mb-4">Connect with me</h3>
+                <h3 className="heading-sm mb-4 text-gradient bg-gradient-to-r from-blue-500 to-purple-600 inline-block">Connect with me</h3>
                 <div className="space-y-4">
                   <a
                     href="mailto:your.email@example.com"
-                    className="flex items-center hover:text-gray-600 transition-colors"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
-                    <Mail className="mr-3 h-5 w-5" />
+                    <Mail className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
                     <span>your.email@example.com</span>
                   </a>
                   
@@ -122,9 +129,9 @@ const Contact = () => {
                     href="https://github.com/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center hover:text-gray-600 transition-colors"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
-                    <Github className="mr-3 h-5 w-5" />
+                    <Github className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
                     <span>github.com/yourusername</span>
                   </a>
                   
@@ -132,21 +139,52 @@ const Contact = () => {
                     href="https://linkedin.com/in/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center hover:text-gray-600 transition-colors"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
-                    <Linkedin className="mr-3 h-5 w-5" />
+                    <Linkedin className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
                     <span>linkedin.com/in/yourusername</span>
+                  </a>
+                  
+                  <a
+                    href="https://twitter.com/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
+                  >
+                    <Twitter className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
+                    <span>twitter.com/yourusername</span>
+                  </a>
+                  
+                  <a
+                    href="https://kaggle.com/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
+                  >
+                    <Database className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
+                    <span>kaggle.com/yourusername</span>
+                  </a>
+                  
+                  <a
+                    href="https://huggingface.co/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
+                  >
+                    <MessageSquare className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
+                    <span>huggingface.co/yourusername</span>
                   </a>
                 </div>
               </div>
               
-              <div className="glass-morphism rounded-xl p-6">
+              <div className="glass-morphism rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white/70 to-white/50">
                 <h3 className="heading-sm mb-3">Looking for collaboration?</h3>
                 <p className="body-sm text-gray-600 mb-4">
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
-                <Button variant="outline" className="rounded-full">
+                <Button variant="outline" className="rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 group">
                   Download Resume
+                  <Code className="ml-2 h-4 w-4 group-hover:animate-pulse" />
                 </Button>
               </div>
             </div>
