@@ -28,6 +28,8 @@ const Hero = () => {
             </div>
             
             <h1 className="heading-xl text-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Aditya Raj</span>
+              <br />
               Transforming data into intelligent solutions
             </h1>
             
