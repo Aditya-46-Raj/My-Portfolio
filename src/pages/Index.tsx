@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
+import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackgroundCanvas from '@/components/BackgroundCanvas';
@@ -30,6 +31,7 @@ const Index = () => {
       <main className="relative z-10">
         <Hero />
         <About />
+        <Skills />
         <Projects />
         <Contact />
       </main>

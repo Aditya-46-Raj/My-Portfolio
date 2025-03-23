@@ -13,22 +13,22 @@ const About = () => {
           ref={ref}
           className={`transition-opacity duration-700 delay-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          <div className="tag bg-gray-100 mb-4">About Me</div>
-          <h2 className="heading-lg mb-12 max-w-2xl">Passionate about turning data into actionable insights</h2>
+          <div className="tag bg-gray-100 dark:bg-gray-800 mb-4">About Me</div>
+          <h2 className="heading-lg mb-12 max-w-2xl text-gray-900 dark:text-gray-100">Passionate about turning data into actionable insights</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <p className="body-md text-gray-600">
+              <p className="body-md text-gray-700 dark:text-gray-300">
                 Welcome to my portfolio! I'm a Machine Learning Engineer and Python expert with a passion 
                 for developing intelligent solutions. My journey in tech began with a fascination for how 
                 data can be used to solve complex problems and make better decisions.
               </p>
-              <p className="body-md text-gray-600">
+              <p className="body-md text-gray-700 dark:text-gray-300">
                 I specialize in developing end-to-end machine learning systems, from data collection and 
                 preprocessing to model development and deployment. My expertise extends to creating 
                 web applications that integrate these models, making AI accessible to users.
               </p>
-              <p className="body-md text-gray-600">
+              <p className="body-md text-gray-700 dark:text-gray-300">
                 Currently, I'm working on several projects that showcase my skills in Python, machine learning, 
                 and web development. I'm always eager to collaborate on new challenges and push the 
                 boundaries of what's possible with technology.
@@ -44,12 +44,12 @@ const About = () => {
             <div className="space-y-8">
               <div className="glass-morphism rounded-xl p-6">
                 <div className="flex items-start">
-                  <div className="mr-4 p-3 bg-blue-50 rounded-md text-blue-500">
+                  <div className="mr-4 p-3 bg-blue-50 dark:bg-blue-900/50 rounded-md text-blue-500 dark:text-blue-300">
                     <BrainCircuit size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-2">Machine Learning</h3>
-                    <p className="body-sm text-gray-600">
+                    <h3 className="heading-sm mb-2 text-gray-900 dark:text-gray-100">Machine Learning</h3>
+                    <p className="body-sm text-gray-700 dark:text-gray-300">
                       Experienced in developing predictive models, natural language processing, 
                       computer vision, and recommendation systems.
                     </p>
@@ -59,12 +59,12 @@ const About = () => {
               
               <div className="glass-morphism rounded-xl p-6">
                 <div className="flex items-start">
-                  <div className="mr-4 p-3 bg-purple-50 rounded-md text-purple-500">
+                  <div className="mr-4 p-3 bg-purple-50 dark:bg-purple-900/50 rounded-md text-purple-500 dark:text-purple-300">
                     <Code size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-2">Python Development</h3>
-                    <p className="body-sm text-gray-600">
+                    <h3 className="heading-sm mb-2 text-gray-900 dark:text-gray-100">Python Development</h3>
+                    <p className="body-sm text-gray-700 dark:text-gray-300">
                       Proficient in Python for data analysis, scientific computing, 
                       automation, and web application development.
                     </p>
@@ -74,12 +74,12 @@ const About = () => {
               
               <div className="glass-morphism rounded-xl p-6">
                 <div className="flex items-start">
-                  <div className="mr-4 p-3 bg-green-50 rounded-md text-green-500">
+                  <div className="mr-4 p-3 bg-green-50 dark:bg-green-900/50 rounded-md text-green-500 dark:text-green-300">
                     <Database size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-2">Data Engineering</h3>
-                    <p className="body-sm text-gray-600">
+                    <h3 className="heading-sm mb-2 text-gray-900 dark:text-gray-100">Data Engineering</h3>
+                    <p className="body-sm text-gray-700 dark:text-gray-300">
                       Skilled in data pipeline development, ETL processes, 
                       database design, and big data technologies.
                     </p>

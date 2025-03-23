@@ -1,8 +1,11 @@
 
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/components/ThemeProvider';
 
 const BackgroundCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   // Space background animation effect
   useEffect(() => {
@@ -26,8 +29,8 @@ const BackgroundCanvas = () => {
     const stars: {x: number, y: number, radius: number, speed: number, opacity: number, color: string}[] = [];
     const numStars = 300; // More stars for better effect
     
-    // Star colors with vibrant and pastel options
-    const starColors = [
+    // Star colors with vibrant and pastel options - different for dark/light modes
+    const starColors = isDark ? [
       'rgba(255, 255, 255, 1)',     // White
       'rgba(173, 216, 230, 1)',     // Light blue (pastel)
       'rgba(255, 182, 193, 1)',     // Light pink (pastel)
@@ -39,6 +42,18 @@ const BackgroundCanvas = () => {
       'rgba(238, 130, 238, 0.9)',   // Violet (vibrant)
       'rgba(255, 215, 0, 0.9)',     // Gold (vibrant)
       'rgba(127, 255, 212, 0.9)',   // Aquamarine (vibrant)
+    ] : [
+      'rgba(100, 149, 237, 0.9)',   // Cornflower Blue
+      'rgba(65, 105, 225, 0.9)',    // Royal Blue
+      'rgba(70, 130, 180, 0.9)',    // Steel Blue
+      'rgba(106, 90, 205, 0.9)',    // Slate Blue
+      'rgba(123, 104, 238, 0.9)',   // Medium Slate Blue
+      'rgba(147, 112, 219, 0.9)',   // Medium Purple
+      'rgba(138, 43, 226, 0.9)',    // Blue Violet
+      'rgba(148, 0, 211, 0.9)',     // Dark Violet
+      'rgba(153, 50, 204, 0.9)',    // Dark Orchid
+      'rgba(186, 85, 211, 0.9)',    // Medium Orchid
+      'rgba(218, 112, 214, 0.9)',   // Orchid
     ];
     
     // Create stars
@@ -53,8 +68,8 @@ const BackgroundCanvas = () => {
       });
     }
     
-    // Nebula colors with vibrant and pastel options
-    const nebulaColors = [
+    // Nebula colors with vibrant and pastel options - different for dark/light modes
+    const nebulaColors = isDark ? [
       // Pastel nebulae
       ['rgba(255, 182, 193, 0.15)', 'rgba(255, 182, 193, 0)'], // Light pink
       ['rgba(173, 216, 230, 0.15)', 'rgba(173, 216, 230, 0)'], // Light blue
@@ -68,11 +83,23 @@ const BackgroundCanvas = () => {
       ['rgba(50, 205, 50, 0.12)', 'rgba(50, 205, 50, 0)'],     // Lime green
       ['rgba(255, 69, 0, 0.12)', 'rgba(255, 69, 0, 0)'],       // Orange red
       ['rgba(30, 144, 255, 0.12)', 'rgba(30, 144, 255, 0)'],   // Dodger blue
+    ] : [
+      // Light mode nebulae - blues and purples
+      ['rgba(65, 105, 225, 0.10)', 'rgba(65, 105, 225, 0)'],   // Royal Blue
+      ['rgba(106, 90, 205, 0.10)', 'rgba(106, 90, 205, 0)'],   // Slate Blue
+      ['rgba(138, 43, 226, 0.10)', 'rgba(138, 43, 226, 0)'],   // Blue Violet
+      ['rgba(72, 61, 139, 0.10)', 'rgba(72, 61, 139, 0)'],     // Dark Slate Blue
+      ['rgba(123, 104, 238, 0.10)', 'rgba(123, 104, 238, 0)'], // Medium Slate Blue
+      ['rgba(147, 112, 219, 0.10)', 'rgba(147, 112, 219, 0)'], // Medium Purple
+      ['rgba(153, 50, 204, 0.10)', 'rgba(153, 50, 204, 0)'],   // Dark Orchid
+      ['rgba(148, 0, 211, 0.10)', 'rgba(148, 0, 211, 0)'],     // Dark Violet
+      ['rgba(186, 85, 211, 0.10)', 'rgba(186, 85, 211, 0)'],   // Medium Orchid
+      ['rgba(128, 0, 128, 0.10)', 'rgba(128, 0, 128, 0)'],     // Purple
     ];
     
     // Create persistent nebulae to avoid constant re-randomization (reduces flickering)
     const persistentNebulae = [];
-    const numNebulae = 10; // Increase number of nebulae
+    const numNebulae = isDark ? 10 : 8; // Fewer nebulae in light mode
     
     for (let i = 0; i < numNebulae; i++) {
       persistentNebulae.push({
@@ -87,12 +114,23 @@ const BackgroundCanvas = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Dark gradient background with a touch of color
+      // Gradient background based on theme
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, 'rgba(5, 10, 20, 1)'); // Dark blue
-      gradient.addColorStop(0.4, 'rgba(12, 15, 35, 1)'); // Midnight blue
-      gradient.addColorStop(0.7, 'rgba(20, 10, 30, 1)'); // Dark purple
-      gradient.addColorStop(1, 'rgba(10, 12, 25, 1)'); // Dark blue-purple
+      
+      if (isDark) {
+        // Dark theme gradient
+        gradient.addColorStop(0, 'rgba(5, 10, 20, 1)');      // Dark blue
+        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 1)');   // Midnight blue
+        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 1)');   // Dark purple
+        gradient.addColorStop(1, 'rgba(10, 12, 25, 1)');     // Dark blue-purple
+      } else {
+        // Light theme gradient
+        gradient.addColorStop(0, 'rgba(240, 240, 255, 1)');  // Very light blue
+        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 1)'); // Lavender
+        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 1)'); // Light purple
+        gradient.addColorStop(1, 'rgba(248, 245, 255, 1)');  // White with a hint of purple
+      }
+      
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
@@ -179,7 +217,7 @@ const BackgroundCanvas = () => {
     return () => {
       window.removeEventListener('resize', setCanvasDimensions);
     };
-  }, []);
+  }, [isDark]);
 
   return (
     <canvas 
