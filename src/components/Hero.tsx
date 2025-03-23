@@ -24,33 +24,32 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="w-full md:w-3/5 space-y-6">
             <div className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100/20 backdrop-blur-sm font-medium mb-2 animate-pulse">
-              Machine Learning & Python Expert
+              Machine Learning & AI Engineer
             </div>
             
             <h1 className="heading-xl text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Aditya Raj</span>
               <br />
-              Transforming data into intelligent solutions
+              Building intelligent systems that shape the future
             </h1>
             
             <p className="body-lg text-gray-300 max-w-2xl">
-              Passionate about creating AI systems that solve real-world challenges. 
-              Specializing in machine learning models, neural networks, and data-driven applications 
-              with a vision to make AI accessible and impactful.
+              Passionate ML engineer crafting AI solutions that transform industries. Specializing in deep learning, 
+              computer vision, and natural language processing to solve complex real-world problems through data-driven innovation.
             </p>
             
             <div className="mt-4 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
-                <p className="text-gray-300">Creating intelligent systems that learn and adapt</p>
+                <p className="text-gray-300">Developing scalable ML models that deliver actionable insights</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-purple-400"></span>
-                <p className="text-gray-300">Building bridges between data science and web technologies</p>
+                <p className="text-gray-300">Bridging the gap between cutting-edge research and practical applications</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-teal-400"></span>
-                <p className="text-gray-300">Exploring the frontiers of AI and its practical applications</p>
+                <p className="text-gray-300">Empowering businesses with AI to automate and optimize workflows</p>
               </div>
             </div>
             
