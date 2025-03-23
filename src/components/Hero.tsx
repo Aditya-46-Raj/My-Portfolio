@@ -28,14 +28,29 @@ const Hero = () => {
             </div>
             
             <h1 className="heading-xl text-white">
-              Building intelligent solutions with data & code
+              Transforming data into intelligent solutions
             </h1>
             
             <p className="body-lg text-gray-300 max-w-2xl">
-              I specialize in developing machine learning models and Python applications 
-              that solve real-world problems. Currently working on projects
-              focused on bringing AI to web applications.
+              Passionate about creating AI systems that solve real-world challenges. 
+              Specializing in machine learning models, neural networks, and data-driven applications 
+              with a vision to make AI accessible and impactful.
             </p>
+            
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
+                <p className="text-gray-300">Creating intelligent systems that learn and adapt</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-400"></span>
+                <p className="text-gray-300">Building bridges between data science and web technologies</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-400"></span>
+                <p className="text-gray-300">Exploring the frontiers of AI and its practical applications</p>
+              </div>
+            </div>
             
             <div className="flex flex-wrap gap-4 pt-4">
               <Button size="lg" className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" onClick={() => scrollTo('projects')}>
@@ -103,13 +118,14 @@ const Hero = () => {
           </div>
           
           <div className="w-full md:w-2/5">
-            <div className="glass-morphism rounded-2xl p-6 hover-effect backdrop-blur-lg bg-white/10 border-white/20 shadow-2xl transition-all hover:shadow-blue-500/20">
+            <div className="glass-morphism rounded-2xl p-4 hover-effect backdrop-blur-lg bg-white/10 border-white/20 shadow-2xl transition-all hover:shadow-blue-500/20">
               <div className="aspect-square rounded-xl overflow-hidden relative group">
-                {/* Replace with your profile image */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-800/50 backdrop-blur-sm">
-                  Profile Image
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
-                </div>
+                <img 
+                  src="/lovable-uploads/6da4841f-8a5a-4595-a772-f855fccef3de.png" 
+                  alt="Profile Image" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
               </div>
             </div>
           </div>
