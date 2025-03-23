@@ -124,7 +124,7 @@ const Hero = () => {
               <div className="aspect-square rounded-xl overflow-hidden relative group">
                 <img 
                   src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
-                  alt="Profile Image" 
+                  alt="Aditya Raj Profile Image" 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
