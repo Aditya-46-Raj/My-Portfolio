@@ -123,7 +123,7 @@ const Hero = () => {
             <div className="glass-morphism rounded-2xl p-4 hover-effect backdrop-blur-lg bg-white/10 border-white/20 shadow-2xl transition-all hover:shadow-blue-500/20">
               <div className="aspect-square rounded-xl overflow-hidden relative group">
                 <img 
-                  src="/lovable-uploads/6da4841f-8a5a-4595-a772-f855fccef3de.png" 
+                  src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
                   alt="Profile Image" 
                   className="w-full h-full object-cover"
                 />
