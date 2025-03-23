@@ -9,7 +9,7 @@ const Hero = () => {
   const { scrollTo } = useSmoothScroll();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden">
       {/* Floating planetary elements */}
       <div className="absolute inset-0 -z-5">
         <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-50 blur-3xl animate-float" />
