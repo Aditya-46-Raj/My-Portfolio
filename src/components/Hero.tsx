@@ -3,24 +3,23 @@ import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, Twitter, ExternalLink, Code, Database, MessageSquare } from 'lucide-react';
 import { useSmoothScroll } from '@/lib/animations';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Hero = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
   const { scrollTo } = useSmoothScroll();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden py-20 z-10">
-      {/* Floating planetary elements */}
-      <div className="absolute inset-0 -z-5">
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-30 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/20 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/20 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 py-20 relative z-30">
+      {/* Reduced opacity for floating elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
       </div>
       
       <div 
         ref={ref}
-        className={`max-w-6xl w-full mx-auto staggered-fade-in ${isVisible ? 'opacity-100' : 'opacity-0'} z-20`}
+        className={`max-w-6xl w-full mx-auto ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}
       >
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="w-full md:w-3/5 space-y-6">
@@ -28,13 +27,13 @@ const Hero = () => {
               Machine Learning & AI Engineer
             </div>
             
-            <h1 className="heading-xl text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Aditya Raj</span>
               <br />
               Building intelligent systems that shape the future
             </h1>
             
-            <p className="body-lg text-gray-300 max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
               Passionate ML engineer crafting AI solutions that transform industries. Specializing in deep learning, 
               computer vision, and natural language processing to solve complex real-world problems through data-driven innovation.
             </p>
@@ -120,8 +119,8 @@ const Hero = () => {
           </div>
           
           <div className="w-full md:w-2/5">
-            <div className="glass-morphism rounded-2xl p-4 hover-effect backdrop-blur-lg bg-white/10 border-white/20 shadow-2xl transition-all hover:shadow-blue-500/20">
-              <div className="aspect-square rounded-xl overflow-hidden relative group">
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 shadow-2xl transition-all hover:shadow-blue-500/20">
+              <div className="aspect-square rounded-xl overflow-hidden relative">
                 <img 
                   src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
                   alt="Aditya Raj Profile Image" 
@@ -134,7 +133,7 @@ const Hero = () => {
                     target.src = "/placeholder.svg";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 hover:from-blue-500/20 hover:to-purple-600/20 transition-all duration-500"></div>
               </div>
             </div>
           </div>

@@ -23,12 +23,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
-      {/* Main background canvas that covers the entire page */}
+    <div className="min-h-screen relative">
+      {/* Background canvas with reduced opacity */}
       <BackgroundCanvas />
       
       <NavBar />
-      <main className="relative z-10">
+      <main className="relative z-20">
         <Hero />
         <About />
         <Projects />

@@ -7,7 +7,7 @@ const BackgroundCanvas = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-  // Space background animation effect
+  // Space background animation effect with reduced opacity
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -25,35 +25,23 @@ const BackgroundCanvas = () => {
     setCanvasDimensions();
     window.addEventListener('resize', setCanvasDimensions);
     
-    // Stars properties
+    // Stars properties with reduced count
     const stars: {x: number, y: number, radius: number, speed: number, opacity: number, color: string}[] = [];
-    const numStars = 300; // More stars for better effect
+    const numStars = 150; // Fewer stars for better content visibility
     
-    // Star colors with vibrant and pastel options - different for dark/light modes
+    // Star colors with reduced opacity
     const starColors = isDark ? [
-      'rgba(255, 255, 255, 1)',     // White
-      'rgba(173, 216, 230, 1)',     // Light blue (pastel)
-      'rgba(255, 182, 193, 1)',     // Light pink (pastel)
-      'rgba(255, 240, 180, 1)',     // Light yellow (pastel)
-      'rgba(211, 211, 255, 1)',     // Light purple (pastel)
-      'rgba(152, 251, 152, 1)',     // Light green (pastel)
-      'rgba(135, 206, 250, 1)',     // Sky blue (vibrant)
-      'rgba(250, 128, 114, 0.9)',   // Salmon (vibrant)
-      'rgba(238, 130, 238, 0.9)',   // Violet (vibrant)
-      'rgba(255, 215, 0, 0.9)',     // Gold (vibrant)
-      'rgba(127, 255, 212, 0.9)',   // Aquamarine (vibrant)
+      'rgba(255, 255, 255, 0.5)',   // White with reduced opacity
+      'rgba(173, 216, 230, 0.5)',   // Light blue with reduced opacity
+      'rgba(255, 182, 193, 0.5)',   // Light pink with reduced opacity
+      'rgba(255, 240, 180, 0.5)',   // Light yellow with reduced opacity
+      'rgba(211, 211, 255, 0.5)',   // Light purple with reduced opacity
     ] : [
-      'rgba(100, 149, 237, 0.9)',   // Cornflower Blue
-      'rgba(65, 105, 225, 0.9)',    // Royal Blue
-      'rgba(70, 130, 180, 0.9)',    // Steel Blue
-      'rgba(106, 90, 205, 0.9)',    // Slate Blue
-      'rgba(123, 104, 238, 0.9)',   // Medium Slate Blue
-      'rgba(147, 112, 219, 0.9)',   // Medium Purple
-      'rgba(138, 43, 226, 0.9)',    // Blue Violet
-      'rgba(148, 0, 211, 0.9)',     // Dark Violet
-      'rgba(153, 50, 204, 0.9)',    // Dark Orchid
-      'rgba(186, 85, 211, 0.9)',    // Medium Orchid
-      'rgba(218, 112, 214, 0.9)',   // Orchid
+      'rgba(100, 149, 237, 0.5)',   // Cornflower Blue with reduced opacity
+      'rgba(65, 105, 225, 0.5)',    // Royal Blue with reduced opacity
+      'rgba(70, 130, 180, 0.5)',    // Steel Blue with reduced opacity
+      'rgba(106, 90, 205, 0.5)',    // Slate Blue with reduced opacity
+      'rgba(123, 104, 238, 0.5)',   // Medium Slate Blue with reduced opacity
     ];
     
     // Create stars
@@ -61,51 +49,33 @@ const BackgroundCanvas = () => {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1.8 + 0.2, // Slightly larger stars
-        speed: Math.random() * 0.035 + 0.01, // Reduce maximum speed to lower flickering
-        opacity: Math.random() * 0.5 + 0.5, // Increased minimum opacity for less flickering
+        radius: Math.random() * 1.5 + 0.2, // Slightly smaller stars
+        speed: Math.random() * 0.03 + 0.01,
+        opacity: Math.random() * 0.4 + 0.2, // Reduced opacity
         color: starColors[Math.floor(Math.random() * starColors.length)]
       });
     }
     
-    // Nebula colors with vibrant and pastel options - different for dark/light modes
+    // Nebula colors with significantly reduced opacity
     const nebulaColors = isDark ? [
-      // Pastel nebulae
-      ['rgba(255, 182, 193, 0.15)', 'rgba(255, 182, 193, 0)'], // Light pink
-      ['rgba(173, 216, 230, 0.15)', 'rgba(173, 216, 230, 0)'], // Light blue
-      ['rgba(152, 251, 152, 0.15)', 'rgba(152, 251, 152, 0)'], // Light green
-      ['rgba(230, 230, 250, 0.15)', 'rgba(230, 230, 250, 0)'], // Lavender
-      ['rgba(255, 228, 196, 0.15)', 'rgba(255, 228, 196, 0)'], // Bisque
-      
-      // Vibrant nebulae
-      ['rgba(255, 105, 180, 0.12)', 'rgba(255, 105, 180, 0)'], // Hot pink
-      ['rgba(138, 43, 226, 0.12)', 'rgba(138, 43, 226, 0)'],   // Blue violet
-      ['rgba(50, 205, 50, 0.12)', 'rgba(50, 205, 50, 0)'],     // Lime green
-      ['rgba(255, 69, 0, 0.12)', 'rgba(255, 69, 0, 0)'],       // Orange red
-      ['rgba(30, 144, 255, 0.12)', 'rgba(30, 144, 255, 0)'],   // Dodger blue
+      ['rgba(255, 182, 193, 0.05)', 'rgba(255, 182, 193, 0)'], // Light pink
+      ['rgba(173, 216, 230, 0.05)', 'rgba(173, 216, 230, 0)'], // Light blue
+      ['rgba(152, 251, 152, 0.05)', 'rgba(152, 251, 152, 0)'], // Light green
     ] : [
-      // Light mode nebulae - blues and purples
-      ['rgba(65, 105, 225, 0.10)', 'rgba(65, 105, 225, 0)'],   // Royal Blue
-      ['rgba(106, 90, 205, 0.10)', 'rgba(106, 90, 205, 0)'],   // Slate Blue
-      ['rgba(138, 43, 226, 0.10)', 'rgba(138, 43, 226, 0)'],   // Blue Violet
-      ['rgba(72, 61, 139, 0.10)', 'rgba(72, 61, 139, 0)'],     // Dark Slate Blue
-      ['rgba(123, 104, 238, 0.10)', 'rgba(123, 104, 238, 0)'], // Medium Slate Blue
-      ['rgba(147, 112, 219, 0.10)', 'rgba(147, 112, 219, 0)'], // Medium Purple
-      ['rgba(153, 50, 204, 0.10)', 'rgba(153, 50, 204, 0)'],   // Dark Orchid
-      ['rgba(148, 0, 211, 0.10)', 'rgba(148, 0, 211, 0)'],     // Dark Violet
-      ['rgba(186, 85, 211, 0.10)', 'rgba(186, 85, 211, 0)'],   // Medium Orchid
-      ['rgba(128, 0, 128, 0.10)', 'rgba(128, 0, 128, 0)'],     // Purple
+      ['rgba(65, 105, 225, 0.05)', 'rgba(65, 105, 225, 0)'],   // Royal Blue
+      ['rgba(106, 90, 205, 0.05)', 'rgba(106, 90, 205, 0)'],   // Slate Blue
+      ['rgba(138, 43, 226, 0.05)', 'rgba(138, 43, 226, 0)'],   // Blue Violet
     ];
     
-    // Create persistent nebulae to avoid constant re-randomization (reduces flickering)
+    // Create persistent nebulae with reduced count
     const persistentNebulae = [];
-    const numNebulae = isDark ? 8 : 6; // Fewer nebulae for better visibility
+    const numNebulae = 4; // Fewer nebulae for better visibility
     
     for (let i = 0; i < numNebulae; i++) {
       persistentNebulae.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 200 + 80, // Slightly smaller nebulae
+        radius: Math.random() * 150 + 50, // Smaller nebulae
         colorSet: nebulaColors[Math.floor(Math.random() * nebulaColors.length)]
       });
     }
@@ -114,21 +84,21 @@ const BackgroundCanvas = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Gradient background based on theme
+      // Gradient background based on theme with increased transparency
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
       
       if (isDark) {
-        // Dark theme gradient - less opacity for better content visibility
-        gradient.addColorStop(0, 'rgba(5, 10, 20, 0.8)');      // Dark blue
-        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 0.8)');   // Midnight blue
-        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 0.8)');   // Dark purple
-        gradient.addColorStop(1, 'rgba(10, 12, 25, 0.8)');     // Dark blue-purple
+        // Dark theme gradient with increased transparency
+        gradient.addColorStop(0, 'rgba(5, 10, 20, 0.6)');
+        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 0.6)');
+        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 0.6)');
+        gradient.addColorStop(1, 'rgba(10, 12, 25, 0.6)');
       } else {
-        // Light theme gradient - less opacity for better content visibility
-        gradient.addColorStop(0, 'rgba(240, 240, 255, 0.8)');  // Very light blue
-        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 0.8)'); // Lavender
-        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 0.8)'); // Light purple
-        gradient.addColorStop(1, 'rgba(248, 245, 255, 0.8)');  // White with a hint of purple
+        // Light theme gradient with increased transparency
+        gradient.addColorStop(0, 'rgba(240, 240, 255, 0.6)');
+        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 0.6)');
+        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 0.6)');
+        gradient.addColorStop(1, 'rgba(248, 245, 255, 0.6)');
       }
       
       ctx.fillStyle = gradient;
@@ -140,12 +110,9 @@ const BackgroundCanvas = () => {
           nebula.x, nebula.y, 0, 
           nebula.x, nebula.y, nebula.radius
         );
-        // Reduce opacity of nebulae
-        const startColor = nebula.colorSet[0].replace(/[\d.]+\)$/, '0.08)');
-        const endColor = nebula.colorSet[1].replace(/[\d.]+\)$/, '0)');
         
-        nebulaGradient.addColorStop(0, startColor);
-        nebulaGradient.addColorStop(1, endColor);
+        nebulaGradient.addColorStop(0, nebula.colorSet[0]);
+        nebulaGradient.addColorStop(1, nebula.colorSet[1]);
         
         ctx.fillStyle = nebulaGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -155,9 +122,7 @@ const BackgroundCanvas = () => {
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        // Reduce star opacity
-        const starColor = star.color.replace(/[\d.]+\)$/, '0.6)');
-        ctx.fillStyle = starColor;
+        ctx.fillStyle = star.color;
         ctx.fill();
         
         // Update star position for next frame
@@ -170,15 +135,15 @@ const BackgroundCanvas = () => {
         }
       });
       
-      // Occasional shooting star with reduced frequency
-      if (Math.random() < 0.01) {
+      // Occasional shooting star with very low frequency
+      if (Math.random() < 0.005) {
         const shootingStar = {
           x: Math.random() * canvas.width,
           y: 0,
-          length: Math.random() * 120 + 80,
-          speed: Math.random() * 10 + 5, // Reduced speed for less flickering
+          length: Math.random() * 80 + 40,
+          speed: Math.random() * 7 + 3,
           angle: Math.PI / 4,
-          color: starColors[Math.floor(Math.random() * starColors.length)].replace('1)', '0.7)') // Use star colors
+          color: starColors[Math.floor(Math.random() * starColors.length)]
         };
         
         const drawShootingStar = () => {
@@ -187,19 +152,19 @@ const BackgroundCanvas = () => {
             y: shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.length
           };
           
-          // Create gradient for shooting star with the selected color
+          // Create gradient for shooting star with reduced opacity
           const gradient = ctx.createLinearGradient(
             shootingStar.x, shootingStar.y,
             tail.x, tail.y
           );
           gradient.addColorStop(0, shootingStar.color);
-          gradient.addColorStop(1, shootingStar.color.replace('0.7)', '0)'));
+          gradient.addColorStop(1, shootingStar.color.replace(/[\d.]+\)$/, '0)'));
           
           ctx.beginPath();
           ctx.moveTo(shootingStar.x, shootingStar.y);
           ctx.lineTo(tail.x, tail.y);
           ctx.strokeStyle = gradient;
-          ctx.lineWidth = 2;
+          ctx.lineWidth = 1;
           ctx.stroke();
           
           // Update position
@@ -229,7 +194,7 @@ const BackgroundCanvas = () => {
     <canvas 
       ref={canvasRef} 
       className="fixed inset-0 w-full h-full -z-10"
-      style={{ filter: 'blur(1px)', opacity: 0.7 }} // Reduced opacity for better content visibility
+      style={{ filter: 'blur(1px)', opacity: 0.4 }} // Significantly reduced opacity for better content visibility
     />
   );
 };
