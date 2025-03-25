@@ -61,13 +61,14 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button 
-                size="lg" 
-                className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
-                onClick={handleViewProjects}
-              >
-                View Projects
-              </Button>
+              <a href="#projects">
+                <Button 
+                  size="lg" 
+                  className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
+                >
+                  View Projects
+                </Button>
+              </a>
               <Button 
                 size="lg" 
                 variant="outline" 
