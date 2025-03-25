@@ -3,13 +3,14 @@ import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, Twitter, ExternalLink, Code, Database, MessageSquare } from 'lucide-react';
 import { useSmoothScroll } from '@/lib/animations';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Hero = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
   const { scrollTo } = useSmoothScroll();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden py-20">
       {/* Floating planetary elements */}
       <div className="absolute inset-0 -z-5">
         <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-50 blur-3xl animate-float" />
@@ -19,7 +20,7 @@ const Hero = () => {
       
       <div 
         ref={ref}
-        className={`max-w-6xl w-full mx-auto staggered-fade-in ${isVisible ? 'opacity-100' : 'opacity-0'} z-10`}
+        className={`max-w-6xl w-full mx-auto staggered-fade-in ${isVisible ? 'opacity-100' : 'opacity-0'} z-20`}
       >
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="w-full md:w-3/5 space-y-6">
@@ -125,6 +126,7 @@ const Hero = () => {
                   src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
                   alt="Aditya Raj Profile Image" 
                   className="w-full h-full object-cover"
+                  onError={(e) => console.error("Image failed to load", e)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
               </div>

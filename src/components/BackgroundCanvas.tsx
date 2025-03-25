@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
 
@@ -99,13 +98,13 @@ const BackgroundCanvas = () => {
     
     // Create persistent nebulae to avoid constant re-randomization (reduces flickering)
     const persistentNebulae = [];
-    const numNebulae = isDark ? 10 : 8; // Fewer nebulae in light mode
+    const numNebulae = isDark ? 8 : 6; // Fewer nebulae for better visibility
     
     for (let i = 0; i < numNebulae; i++) {
       persistentNebulae.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 250 + 100,
+        radius: Math.random() * 200 + 80, // Slightly smaller nebulae
         colorSet: nebulaColors[Math.floor(Math.random() * nebulaColors.length)]
       });
     }
@@ -118,40 +117,46 @@ const BackgroundCanvas = () => {
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
       
       if (isDark) {
-        // Dark theme gradient
-        gradient.addColorStop(0, 'rgba(5, 10, 20, 1)');      // Dark blue
-        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 1)');   // Midnight blue
-        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 1)');   // Dark purple
-        gradient.addColorStop(1, 'rgba(10, 12, 25, 1)');     // Dark blue-purple
+        // Dark theme gradient - less opacity for better content visibility
+        gradient.addColorStop(0, 'rgba(5, 10, 20, 0.9)');      // Dark blue
+        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 0.9)');   // Midnight blue
+        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 0.9)');   // Dark purple
+        gradient.addColorStop(1, 'rgba(10, 12, 25, 0.9)');     // Dark blue-purple
       } else {
-        // Light theme gradient
-        gradient.addColorStop(0, 'rgba(240, 240, 255, 1)');  // Very light blue
-        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 1)'); // Lavender
-        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 1)'); // Light purple
-        gradient.addColorStop(1, 'rgba(248, 245, 255, 1)');  // White with a hint of purple
+        // Light theme gradient - less opacity for better content visibility
+        gradient.addColorStop(0, 'rgba(240, 240, 255, 0.9)');  // Very light blue
+        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 0.9)'); // Lavender
+        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 0.9)'); // Light purple
+        gradient.addColorStop(1, 'rgba(248, 245, 255, 0.9)');  // White with a hint of purple
       }
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Draw persistent nebulae first (in background)
+      // Draw persistent nebulae with reduced opacity
       persistentNebulae.forEach(nebula => {
         const nebulaGradient = ctx.createRadialGradient(
           nebula.x, nebula.y, 0, 
           nebula.x, nebula.y, nebula.radius
         );
-        nebulaGradient.addColorStop(0, nebula.colorSet[0]);
-        nebulaGradient.addColorStop(1, nebula.colorSet[1]);
+        // Reduce opacity of nebulae
+        const startColor = nebula.colorSet[0].replace(/[\d.]+\)$/, '0.1)');
+        const endColor = nebula.colorSet[1].replace(/[\d.]+\)$/, '0)');
+        
+        nebulaGradient.addColorStop(0, startColor);
+        nebulaGradient.addColorStop(1, endColor);
         
         ctx.fillStyle = nebulaGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       });
       
-      // Draw stars with their unique colors
+      // Draw stars with reduced opacity
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = star.color;
+        // Reduce star opacity
+        const starColor = star.color.replace(/[\d.]+\)$/, '0.7)');
+        ctx.fillStyle = starColor;
         ctx.fill();
         
         // Update star position for next frame
@@ -164,8 +169,8 @@ const BackgroundCanvas = () => {
         }
       });
       
-      // Occasional shooting star (reduced probability to lower flickering)
-      if (Math.random() < 0.02) {
+      // Occasional shooting star with reduced frequency
+      if (Math.random() < 0.01) {
         const shootingStar = {
           x: Math.random() * canvas.width,
           y: 0,
@@ -223,7 +228,7 @@ const BackgroundCanvas = () => {
     <canvas 
       ref={canvasRef} 
       className="fixed inset-0 w-full h-full -z-10"
-      style={{ filter: 'blur(1px)' }}
+      style={{ filter: 'blur(1px)', opacity: 0.8 }} // Reduced opacity for better content visibility
     />
   );
 };
