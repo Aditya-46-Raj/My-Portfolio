@@ -23,7 +23,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-x-hidden">
       {/* Main background canvas that covers the entire page */}
       <BackgroundCanvas />
       

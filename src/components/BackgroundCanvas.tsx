@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
 
@@ -118,16 +119,16 @@ const BackgroundCanvas = () => {
       
       if (isDark) {
         // Dark theme gradient - less opacity for better content visibility
-        gradient.addColorStop(0, 'rgba(5, 10, 20, 0.9)');      // Dark blue
-        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 0.9)');   // Midnight blue
-        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 0.9)');   // Dark purple
-        gradient.addColorStop(1, 'rgba(10, 12, 25, 0.9)');     // Dark blue-purple
+        gradient.addColorStop(0, 'rgba(5, 10, 20, 0.8)');      // Dark blue
+        gradient.addColorStop(0.4, 'rgba(12, 15, 35, 0.8)');   // Midnight blue
+        gradient.addColorStop(0.7, 'rgba(20, 10, 30, 0.8)');   // Dark purple
+        gradient.addColorStop(1, 'rgba(10, 12, 25, 0.8)');     // Dark blue-purple
       } else {
         // Light theme gradient - less opacity for better content visibility
-        gradient.addColorStop(0, 'rgba(240, 240, 255, 0.9)');  // Very light blue
-        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 0.9)'); // Lavender
-        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 0.9)'); // Light purple
-        gradient.addColorStop(1, 'rgba(248, 245, 255, 0.9)');  // White with a hint of purple
+        gradient.addColorStop(0, 'rgba(240, 240, 255, 0.8)');  // Very light blue
+        gradient.addColorStop(0.4, 'rgba(230, 230, 250, 0.8)'); // Lavender
+        gradient.addColorStop(0.7, 'rgba(242, 240, 255, 0.8)'); // Light purple
+        gradient.addColorStop(1, 'rgba(248, 245, 255, 0.8)');  // White with a hint of purple
       }
       
       ctx.fillStyle = gradient;
@@ -140,7 +141,7 @@ const BackgroundCanvas = () => {
           nebula.x, nebula.y, nebula.radius
         );
         // Reduce opacity of nebulae
-        const startColor = nebula.colorSet[0].replace(/[\d.]+\)$/, '0.1)');
+        const startColor = nebula.colorSet[0].replace(/[\d.]+\)$/, '0.08)');
         const endColor = nebula.colorSet[1].replace(/[\d.]+\)$/, '0)');
         
         nebulaGradient.addColorStop(0, startColor);
@@ -155,7 +156,7 @@ const BackgroundCanvas = () => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         // Reduce star opacity
-        const starColor = star.color.replace(/[\d.]+\)$/, '0.7)');
+        const starColor = star.color.replace(/[\d.]+\)$/, '0.6)');
         ctx.fillStyle = starColor;
         ctx.fill();
         
@@ -177,7 +178,7 @@ const BackgroundCanvas = () => {
           length: Math.random() * 120 + 80,
           speed: Math.random() * 10 + 5, // Reduced speed for less flickering
           angle: Math.PI / 4,
-          color: starColors[Math.floor(Math.random() * starColors.length)].replace('1)', '0.9)') // Use star colors
+          color: starColors[Math.floor(Math.random() * starColors.length)].replace('1)', '0.7)') // Use star colors
         };
         
         const drawShootingStar = () => {
@@ -192,7 +193,7 @@ const BackgroundCanvas = () => {
             tail.x, tail.y
           );
           gradient.addColorStop(0, shootingStar.color);
-          gradient.addColorStop(1, shootingStar.color.replace('0.9)', '0)'));
+          gradient.addColorStop(1, shootingStar.color.replace('0.7)', '0)'));
           
           ctx.beginPath();
           ctx.moveTo(shootingStar.x, shootingStar.y);
@@ -228,7 +229,7 @@ const BackgroundCanvas = () => {
     <canvas 
       ref={canvasRef} 
       className="fixed inset-0 w-full h-full -z-10"
-      style={{ filter: 'blur(1px)', opacity: 0.8 }} // Reduced opacity for better content visibility
+      style={{ filter: 'blur(1px)', opacity: 0.7 }} // Reduced opacity for better content visibility
     />
   );
 };

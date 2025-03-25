@@ -10,12 +10,12 @@ const Hero = () => {
   const { scrollTo } = useSmoothScroll();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden py-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 relative overflow-hidden py-20 z-10">
       {/* Floating planetary elements */}
       <div className="absolute inset-0 -z-5">
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-50 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/20 rounded-full opacity-40 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/20 rounded-full opacity-30 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full opacity-30 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/20 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-2/3 right-1/4 w-64 h-64 bg-teal-500/20 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
       </div>
       
       <div 
@@ -126,7 +126,13 @@ const Hero = () => {
                   src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
                   alt="Aditya Raj Profile Image" 
                   className="w-full h-full object-cover"
-                  onError={(e) => console.error("Image failed to load", e)}
+                  loading="eager"
+                  onError={(e) => {
+                    console.error("Image failed to load", e);
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = "/placeholder.svg";
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-all duration-500"></div>
               </div>
