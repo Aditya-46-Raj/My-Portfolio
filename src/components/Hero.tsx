@@ -1,12 +1,19 @@
 
 import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Github, Linkedin, Mail, Twitter, ExternalLink, Code, Database, MessageSquare } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { useSmoothScroll } from '@/lib/animations';
 
 const Hero = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
   const { scrollTo } = useSmoothScroll();
+
+  const handleViewProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 py-20 relative z-30">
@@ -54,68 +61,24 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button size="lg" className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" onClick={() => scrollTo('projects')}>
+              <Button 
+                size="lg" 
+                className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
+                onClick={handleViewProjects}
+              >
                 View Projects
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" onClick={() => scrollTo('contact')}>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="rounded-full backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
+                onClick={() => scrollTo('contact')}
+              >
                 Get in Touch
               </Button>
             </div>
             
-            <div className="flex items-center space-x-6 pt-8">
-              <a
-                href="https://github.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="GitHub Profile"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://linkedin.com/in/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="LinkedIn Profile"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="https://twitter.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="Twitter Profile"
-              >
-                <Twitter size={24} />
-              </a>
-              <a
-                href="https://kaggle.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="Kaggle Profile"
-              >
-                <Database size={24} />
-              </a>
-              <a
-                href="https://huggingface.co/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="Hugging Face Profile"
-              >
-                <MessageSquare size={24} />
-              </a>
-              <a
-                href="mailto:your.email@example.com"
-                className="text-gray-300 hover:text-white transition-all hover:scale-110"
-                aria-label="Email"
-              >
-                <Mail size={24} />
-              </a>
-            </div>
+            {/* Social media icons removed as requested */}
           </div>
           
           <div className="w-full md:w-2/5">
