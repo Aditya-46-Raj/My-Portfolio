@@ -1,6 +1,6 @@
 
 import { useInView } from '@/lib/animations';
-import { Code, Database, Laptop, Layers, Server, Terminal, Layout, BookOpen, Award, Library, Tool, Cpu } from 'lucide-react';
+import { Code, Database, Laptop, Layers, Server, Terminal, Layout, BookOpen, Award, Library, Wrench, Cpu } from 'lucide-react';
 
 const Skills = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
@@ -104,7 +104,7 @@ const Skills = () => {
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-yellow-50 dark:bg-yellow-900/50 rounded-md text-yellow-600 dark:text-yellow-300">
-                    <Tool size={24} />
+                    <Wrench size={24} />
                   </div>
                   <div>
                     <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Tools</h3>
