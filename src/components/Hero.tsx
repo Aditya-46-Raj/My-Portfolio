@@ -8,13 +8,6 @@ const Hero = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
   const { scrollTo } = useSmoothScroll();
 
-  const handleViewProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-10 py-20 relative z-30">
       {/* Reduced opacity for floating elements */}
@@ -61,14 +54,13 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#projects">
-                <Button 
-                  size="lg" 
-                  className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
-                >
-                  View Projects
-                </Button>
-              </a>
+              <Button 
+                size="lg" 
+                className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" 
+                onClick={() => scrollTo('projects')}
+              >
+                View Projects
+              </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
@@ -78,15 +70,13 @@ const Hero = () => {
                 Get in Touch
               </Button>
             </div>
-            
-            {/* Social media icons removed as requested */}
           </div>
           
           <div className="w-full md:w-2/5">
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 shadow-2xl transition-all hover:shadow-blue-500/20">
               <div className="aspect-square rounded-xl overflow-hidden relative">
                 <img 
-                  src="/lovable-uploads/eb18f482-9865-4278-802c-9c09e1c963d6.png" 
+                  src="/lovable-uploads/60cd379d-9991-4338-b6bd-e07ec4892b4d.png" 
                   alt="Aditya Raj Profile Image" 
                   className="w-full h-full object-cover"
                   loading="eager"
