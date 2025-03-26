@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useInView } from '@/lib/animations';
 import ProjectCard from './ProjectCard';
@@ -13,11 +14,18 @@ export const projectsData: Project[] = [
     description: 'A Sentiment Analysis System for Movie Reviews using Machine Learning & Deep Learning techniques. The system analyzes user reviews and classifies them as positive or negative using various models including Linear SVC, Random Forest, Neural Network, and Logistic Regression.',
     shortDescription: 'ML/DL-powered sentiment analysis system for classifying movie reviews as positive or negative.',
     imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-    tags: ['Machine Learning', 'Deep Learning', 'NLP', 'Python'],
+    tags: ['Machine Learning', 'Deep Learning', 'NLP', 'Python', 'TensorFlow', 'Scikit-Learn'],
     githubUrl: 'https://github.com/Aditya-46-Raj/movie-review-classifier',
     demoUrl: '',
     content: `## Overview
 This project is a Movie Review Classifier that analyzes user reviews and classifies them as positive or negative using Machine Learning and Deep Learning techniques.
+
+### Key Achievements
+- Developed a sentiment analysis system to classify movie reviews as positive or negative.
+- Implemented multiple models (Linear SVC, Random Forest, Logistic Regression, Neural Network) for comparison.
+- Preprocessed text data using NLP techniques and vectorization methods.
+- Evaluated models based on accuracy and precision, achieving an accuracy of 88.05% with Neural Networks.
+- Saved trained models for future use and streamlined evaluation with visualizations.
 
 ### Implemented Models:
 - Linear SVC
@@ -37,8 +45,24 @@ The dataset is preprocessed, vectorized, and used for training models. The best-
 ## Project Structure
 The project is organized into multiple directories:
 - **data/** – Contains raw and processed datasets
+  - raw/ – Raw dataset
+  - processed/ – Preprocessed & vectorized data
+  - X_train.csv – Training feature data
+  - X_test.csv – Testing feature data
+  - Y_train.csv – Training labels
+  - Y_test.csv – Testing labels
 - **models/** – Stores saved trained models
+  - saved_models/ – Pre-trained models
+  - linear_svc.pkl – Linear SVC model
+  - random_forest.pkl – Random Forest model
+  - logistic_regression.pkl – Logistic Regression model
+  - Neural_Net.pkl – Neural Network model
+  - tokenizer.pkl – Tokenizer for text vectorization
 - **results/** – Contains evaluation metrics and visualizations
+  - plots/ – Model Performance Visualizations
+  - confusion_matrix_svc.png
+  - confusion_matrix_rf.png
+  - model_accuracy_comparison.png
 - **notebooks/** – Jupyter notebooks for analysis
 - **src/** – Source code including data loading, preprocessing, and model training
 
@@ -51,6 +75,15 @@ The project is organized into multiple directories:
 | Logistic Regression | 51.31% | 51.36% |
 
 The Neural Network model significantly outperforms other models with 88.05% accuracy.
+
+## Tools & Technologies
+- Python
+- Scikit-Learn
+- TensorFlow
+- NLP
+- Logistic Regression
+- Random Forest
+- Neural Networks
 
 ## Future Improvements
 - Implement XGBoost or Gradient Boosting for better accuracy

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useImageLoad } from '@/lib/animations';
 import NavBar from '@/components/NavBar';
@@ -71,6 +71,13 @@ const ProjectDetails = () => {
           <div className="space-y-8 animate-fadeIn">
             <h1 className="heading-lg">{project.title}</h1>
             
+            {slug === 'sentiment-analysis-tool' && (
+              <div className="flex items-center text-gray-500 mb-2">
+                <Calendar className="h-4 w-4 mr-2" />
+                <span className="text-sm">2023 - 2024</span>
+              </div>
+            )}
+            
             <div className="flex flex-wrap gap-2 my-4">
               {project.tags.map((tag) => (
                 <span key={tag} className="tag bg-gray-100 text-gray-700">
@@ -123,6 +130,17 @@ const ProjectDetails = () => {
               {slug === 'sentiment-analysis-tool' ? (
                 <div className="space-y-8">
                   <div>
+                    <h2 className="heading-md mb-4">Key Achievements</h2>
+                    <ul className="space-y-2 list-disc pl-6">
+                      <li>Developed a sentiment analysis system to classify movie reviews as positive or negative.</li>
+                      <li>Implemented multiple models (Linear SVC, Random Forest, Logistic Regression, Neural Network) for comparison.</li>
+                      <li>Preprocessed text data using NLP techniques and vectorization methods.</li>
+                      <li>Evaluated models based on accuracy and precision, achieving an accuracy of 88.05% with Neural Networks.</li>
+                      <li>Saved trained models for future use and streamlined evaluation with visualizations.</li>
+                    </ul>
+                  </div>
+
+                  <div>
                     <h2 className="heading-md mb-4 flex items-center">
                       <Code className="mr-2 h-5 w-5" /> Features
                     </h2>
@@ -164,10 +182,26 @@ const ProjectDetails = () => {
                           <pre className="text-left whitespace-pre-line">
 {`📂 movie_review_classifier/
 │── 📂 data/                    # Dataset & Processed Data
+│   ├── raw/                    # Raw dataset
+│   ├── processed/               # Preprocessed & vectorized data
+│   ├── X_train.csv              # Training feature data
+│   ├── X_test.csv               # Testing feature data
+│   ├── Y_train.csv              # Training labels
+│   ├── Y_test.csv               # Testing labels
+│
 │── 📂 models/                   # Saved Trained Models
+│   ├── saved_models/            # Pre-trained models
+│   ├── linear_svc.pkl           # Linear SVC model
+│   ├── random_forest.pkl        # Random Forest model
+│   ├── logistic_regression.pkl  # Logistic Regression model
+│   ├── Neural_Net.pkl           # Neural Network model
+│   ├── tokenizer.pkl            # Tokenizer for text vectorization
+│
 │── 📂 results/                   # Evaluation Metrics
-│── 📂 notebooks/                 # Jupyter Notebooks for Analysis
-│── 📂 src/                        # Source Code`}
+│   ├── plots/                    # Model Performance Visualizations
+│   ├── confusion_matrix_svc.png  
+│   ├── confusion_matrix_rf.png  
+│   ├── model_accuracy_comparison.png`}
                           </pre>
                         </div>
                       </CardContent>
@@ -216,6 +250,19 @@ const ProjectDetails = () => {
                         <p className="text-sm text-gray-500 mt-4">The Neural Network model significantly outperforms other models with 88.05% accuracy.</p>
                       </CardContent>
                     </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4">Tools & Technologies</h2>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Scikit-Learn</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">TensorFlow</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">NLP</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Logistic Regression</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Random Forest</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Neural Networks</span>
+                    </div>
                   </div>
                   
                   <div>
