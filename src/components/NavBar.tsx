@@ -73,7 +73,7 @@ const NavBar = () => {
           
           <div className="flex items-center space-x-3">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Aditya-46-Raj"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-110 transition-transform"
@@ -82,7 +82,7 @@ const NavBar = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/aditya-46-raj/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-110 transition-transform"
@@ -91,7 +91,7 @@ const NavBar = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/Aditya_Raj_0211"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover:scale-110 transition-transform"
@@ -157,7 +157,7 @@ const NavBar = () => {
           
           <div className="flex flex-wrap items-center gap-6 pt-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Aditya-46-Raj"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
@@ -167,7 +167,7 @@ const NavBar = () => {
               <span className="text-sm">GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/aditya-46-raj/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
@@ -177,7 +177,7 @@ const NavBar = () => {
               <span className="text-sm">LinkedIn</span>
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/Aditya_Raj_0211"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
@@ -187,7 +187,7 @@ const NavBar = () => {
               <span className="text-sm">Twitter</span>
             </a>
             <a
-              href="https://kaggle.com/yourusername"
+              href="https://www.kaggle.com/aditya46raj"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
@@ -197,7 +197,7 @@ const NavBar = () => {
               <span className="text-sm">Kaggle</span>
             </a>
             <a
-              href="https://huggingface.co/yourusername"
+              href="https://huggingface.co/Aditya-46-Raj"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"

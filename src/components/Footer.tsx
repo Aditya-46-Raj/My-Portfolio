@@ -55,7 +55,7 @@ const Footer = () => {
               <h4 className="text-sm font-semibold mb-4">Connect</h4>
               <div className="grid grid-cols-3 gap-4">
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/Aditya-46-Raj"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
@@ -64,7 +64,7 @@ const Footer = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://www.linkedin.com/in/aditya-46-raj/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
@@ -73,7 +73,7 @@ const Footer = () => {
                   <Linkedin size={20} />
                 </a>
                 <a
-                  href="https://twitter.com/yourusername"
+                  href="https://x.com/Aditya_Raj_0211"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter Profile"
@@ -82,7 +82,7 @@ const Footer = () => {
                   <Twitter size={20} />
                 </a>
                 <a
-                  href="https://kaggle.com/yourusername"
+                  href="https://www.kaggle.com/aditya46raj"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Kaggle Profile"
@@ -91,7 +91,7 @@ const Footer = () => {
                   <Database size={20} />
                 </a>
                 <a
-                  href="https://huggingface.co/yourusername"
+                  href="https://huggingface.co/Aditya-46-Raj"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Hugging Face Profile"
@@ -100,7 +100,7 @@ const Footer = () => {
                   <MessageSquare size={20} />
                 </a>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:adityaraj21103@gmail.com"
                   aria-label="Email"
                   className="text-gray-500 hover:text-blue-600 transition-colors hover:scale-110 transition-transform"
                 >
@@ -113,7 +113,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {currentYear} Your Name. All rights reserved.
+            &copy; {currentYear} Aditya Raj. All rights reserved.
           </p>
           <p className="text-sm text-gray-500 mt-2 md:mt-0">
             <span className="text-gradient bg-gradient-to-r from-blue-500 to-purple-600 inline-block">Designed and built with care</span>

@@ -118,61 +118,61 @@ const Contact = () => {
                 <h3 className="heading-sm mb-4 text-gradient bg-gradient-to-r from-blue-500 to-purple-600 inline-block">Connect with me</h3>
                 <div className="space-y-4">
                   <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:adityaraj21103@gmail.com"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <Mail className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>your.email@example.com</span>
+                    <span>adityaraj21103@gmail.com</span>
                   </a>
                   
                   <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/Aditya-46-Raj"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <Github className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>github.com/yourusername</span>
+                    <span>github.com/Aditya-46-Raj</span>
                   </a>
                   
                   <a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/aditya-46-raj/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <Linkedin className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>linkedin.com/in/yourusername</span>
+                    <span>linkedin.com/in/aditya-46-raj</span>
                   </a>
                   
                   <a
-                    href="https://twitter.com/yourusername"
+                    href="https://x.com/Aditya_Raj_0211"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <Twitter className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>twitter.com/yourusername</span>
+                    <span>x.com/Aditya_Raj_0211</span>
                   </a>
                   
                   <a
-                    href="https://kaggle.com/yourusername"
+                    href="https://www.kaggle.com/aditya46raj"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <Database className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>kaggle.com/yourusername</span>
+                    <span>kaggle.com/aditya46raj</span>
                   </a>
                   
                   <a
-                    href="https://huggingface.co/yourusername"
+                    href="https://huggingface.co/Aditya-46-Raj"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:text-blue-600 transition-all duration-300 hover:translate-x-1 group"
                   >
                     <MessageSquare className="mr-3 h-5 w-5 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                    <span>huggingface.co/yourusername</span>
+                    <span>huggingface.co/Aditya-46-Raj</span>
                   </a>
                 </div>
               </div>
