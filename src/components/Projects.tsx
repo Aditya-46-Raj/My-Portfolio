@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useInView } from '@/lib/animations';
 import ProjectCard from './ProjectCard';
@@ -9,15 +8,54 @@ import { Project } from '@/lib/types';
 export const projectsData: Project[] = [
   {
     id: '1',
-    title: 'Sentiment Analysis Tool',
+    title: 'Movie Review Classifier',
     slug: 'sentiment-analysis-tool',
-    description: 'A machine learning model that analyzes text sentiment for customer feedback.',
-    shortDescription: 'NLP model for real-time sentiment analysis of customer feedback.',
+    description: 'A Sentiment Analysis System for Movie Reviews using Machine Learning & Deep Learning techniques. The system analyzes user reviews and classifies them as positive or negative using various models including Linear SVC, Random Forest, Neural Network, and Logistic Regression.',
+    shortDescription: 'ML/DL-powered sentiment analysis system for classifying movie reviews as positive or negative.',
     imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-    tags: ['NLP', 'Python', 'Machine Learning'],
-    githubUrl: 'https://github.com/yourusername/sentiment-analysis',
-    demoUrl: 'https://demo-sentiment-analysis.example.com',
-    content: 'Detailed explanation about the sentiment analysis project...',
+    tags: ['Machine Learning', 'Deep Learning', 'NLP', 'Python'],
+    githubUrl: 'https://github.com/Aditya-46-Raj/movie-review-classifier',
+    demoUrl: '',
+    content: `## Overview
+This project is a Movie Review Classifier that analyzes user reviews and classifies them as positive or negative using Machine Learning and Deep Learning techniques.
+
+### Implemented Models:
+- Linear SVC
+- Random Forest Classifier
+- Neural Network
+- Logistic Regression
+
+The dataset is preprocessed, vectorized, and used for training models. The best-performing model is selected based on accuracy and precision.
+
+## Features
+- **Preprocessing Pipeline** – Cleans and vectorizes text data.
+- **Multiple Machine Learning Models** – Compare different classifiers.
+- **Deep Learning Integration** – Neural Network model for better accuracy.
+- **Model Saving & Loading** – Store trained models for future use.
+- **Performance Evaluation** – Accuracy & precision comparison.
+
+## Project Structure
+The project is organized into multiple directories:
+- **data/** – Contains raw and processed datasets
+- **models/** – Stores saved trained models
+- **results/** – Contains evaluation metrics and visualizations
+- **notebooks/** – Jupyter notebooks for analysis
+- **src/** – Source code including data loading, preprocessing, and model training
+
+## Model Performance
+| Model | Accuracy | Precision |
+|-------|----------|-----------|
+| Linear SVC | 51.31% | 51.36% |
+| Random Forest | 53.88% | 53.94% |
+| Neural Network | 88.05% | 88.05% |
+| Logistic Regression | 51.31% | 51.36% |
+
+The Neural Network model significantly outperforms other models with 88.05% accuracy.
+
+## Future Improvements
+- Implement XGBoost or Gradient Boosting for better accuracy
+- Add Hyperparameter tuning
+- Deploy the model as a web application`,
     featured: true
   },
   {
