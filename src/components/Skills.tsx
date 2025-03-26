@@ -1,18 +1,17 @@
 
 import { useInView } from '@/lib/animations';
-import { Code, Database, Laptop, Layers, Server, Terminal, Layout, BookOpen, Award } from 'lucide-react';
+import { Code, Database, Laptop, Layers, Server, Terminal, Layout, BookOpen, Award, Library, Tool, Cpu } from 'lucide-react';
 
 const Skills = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
 
   const technicalSkills = {
-    languages: ['C', 'C++', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Dart'],
-    technologies: ['Generative AI (e.g., OpenAI APIs, GPT models, Open source models such as Claude AI, Meta AI)'],
-    developerTools: ['Visual Studio Code', 'Android Studio', 'Docker', 'IntelliJ Idea', 'Jupyter Notebook'],
-    frameworks: ['ReactJs', 'ExpressJs', 'NextJs', 'Flutter', 'NodeJs'],
-    cloudDatabases: ['AWS', 'Firebase', 'MongoDB', 'MySQL'],
-    coursework: ['Data Structures', 'Algorithms', 'OS', 'DBMS', 'Web Development'],
-    interests: ['Competitive Programming', 'AI/ML', 'Full Stack Web Development']
+    languages: ['C', 'C++', 'Python', 'HTML', 'CSS', 'JavaScript', 'SQL'],
+    technologies: ['Machine Learning', 'Deep Learning', 'NLP', 'Data Preprocessing', 'Model Evaluation'],
+    frameworks: ['Numpy', 'Pandas', 'Matplotlib', 'TensorFlow', 'Scikit-Learn', 'Keras', 'Seaborn', 'Tkinter'],
+    tools: ['Docker', 'Visual Studio Code', 'Jupyter Notebook', 'Git'],
+    libraries: ['Hugging Face', 'Ollama', 'LLaMA', 'Gemini API', 'FastAPI', 'Flask'],
+    interests: ['Competitive Programming', 'AI/ML', 'Data Science', 'Model Optimization']
   };
 
   // Function to generate a random color from a predefined set for skill tags
@@ -49,7 +48,7 @@ const Skills = () => {
                     <Code size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Languages</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Programming Languages</h3>
                     <div className="flex flex-wrap gap-2">
                       {technicalSkills.languages.map((skill, index) => (
                         <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index)}`}>
@@ -61,16 +60,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              {/* Frameworks */}
+              {/* Technologies */}
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-purple-50 dark:bg-purple-900/50 rounded-md text-purple-500 dark:text-purple-300">
-                    <Layers size={24} />
+                    <Cpu size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Frameworks</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Technologies</h3>
                     <div className="flex flex-wrap gap-2">
-                      {technicalSkills.frameworks.map((skill, index) => (
+                      {technicalSkills.technologies.map((skill, index) => (
                         <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 1)}`}>
                           {skill}
                         </span>
@@ -80,16 +79,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              {/* Cloud/Databases */}
+              {/* Frameworks */}
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-green-50 dark:bg-green-900/50 rounded-md text-green-500 dark:text-green-300">
-                    <Database size={24} />
+                    <Layers size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Cloud & Databases</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Frameworks</h3>
                     <div className="flex flex-wrap gap-2">
-                      {technicalSkills.cloudDatabases.map((skill, index) => (
+                      {technicalSkills.frameworks.map((skill, index) => (
                         <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 2)}`}>
                           {skill}
                         </span>
@@ -101,16 +100,16 @@ const Skills = () => {
             </div>
 
             <div className="space-y-8">
-              {/* Technologies */}
+              {/* Tools */}
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-yellow-50 dark:bg-yellow-900/50 rounded-md text-yellow-600 dark:text-yellow-300">
-                    <Terminal size={24} />
+                    <Tool size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Technologies</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Tools</h3>
                     <div className="flex flex-wrap gap-2">
-                      {technicalSkills.technologies.map((skill, index) => (
+                      {technicalSkills.tools.map((skill, index) => (
                         <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 3)}`}>
                           {skill}
                         </span>
@@ -120,16 +119,16 @@ const Skills = () => {
                 </div>
               </div>
 
-              {/* Developer Tools */}
+              {/* Libraries */}
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-red-50 dark:bg-red-900/50 rounded-md text-red-500 dark:text-red-300">
-                    <Laptop size={24} />
+                    <Library size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Developer Tools</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Libraries</h3>
                     <div className="flex flex-wrap gap-2">
-                      {technicalSkills.developerTools.map((skill, index) => (
+                      {technicalSkills.libraries.map((skill, index) => (
                         <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 4)}`}>
                           {skill}
                         </span>
@@ -139,41 +138,22 @@ const Skills = () => {
                 </div>
               </div>
 
-              {/* Coursework */}
+              {/* Interests */}
               <div className="glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
                 <div className="flex items-start">
                   <div className="mr-4 p-3 bg-indigo-50 dark:bg-indigo-900/50 rounded-md text-indigo-500 dark:text-indigo-300">
-                    <BookOpen size={24} />
+                    <Award size={24} />
                   </div>
                   <div>
-                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Coursework</h3>
+                    <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Interests</h3>
                     <div className="flex flex-wrap gap-2">
-                      {technicalSkills.coursework.map((skill, index) => (
-                        <span key={skill} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 5)}`}>
-                          {skill}
+                      {technicalSkills.interests.map((interest, index) => (
+                        <span key={interest} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 5)}`}>
+                          {interest}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Interests */}
-          <div className="mt-10 glass-morphism rounded-xl p-6 dark:bg-gray-800/40">
-            <div className="flex items-start">
-              <div className="mr-4 p-3 bg-pink-50 dark:bg-pink-900/50 rounded-md text-pink-500 dark:text-pink-300">
-                <Award size={24} />
-              </div>
-              <div>
-                <h3 className="heading-sm mb-3 text-gray-900 dark:text-gray-100">Interests</h3>
-                <div className="flex flex-wrap gap-2">
-                  {technicalSkills.interests.map((interest, index) => (
-                    <span key={interest} className={`px-3 py-1 rounded-full text-xs font-medium ${getSkillTagColor(index + 6)}`}>
-                      {interest}
-                    </span>
-                  ))}
                 </div>
               </div>
             </div>
