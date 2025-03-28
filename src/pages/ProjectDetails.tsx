@@ -1,7 +1,6 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3, Calendar, Cpu, MessageSquare, FileText, Zap } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3, Calendar, Cpu, MessageSquare, FileText, Zap, Camera, Database, Award, ListChecks } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useImageLoad } from '@/lib/animations';
 import NavBar from '@/components/NavBar';
@@ -428,6 +427,173 @@ const ProjectDetails = () => {
                       <li>Add Voice Input & Output</li>
                       <li>Enhance UI with more customization</li>
                       <li>Allow integration with other AI models</li>
+                    </ul>
+                  </div>
+                </div>
+              ) : slug === 'face-mask-detection' ? (
+                <div className="space-y-8">
+                  <div>
+                    <h2 className="heading-md mb-4">Key Features</h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Custom Deep CNN Model</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Data Augmentation</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Model Evaluation</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Optimizations (Batch Norm, Dropout)</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Real-Time Detection Ready</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <FileCode className="mr-2 h-5 w-5" /> Project Structure
+                    </h2>
+                    <Card className="overflow-hidden">
+                      <CardContent className="pt-6">
+                        <div className="text-sm text-gray-700 font-mono bg-gray-50 p-4 rounded-lg overflow-x-auto">
+                          <pre className="text-left whitespace-pre-line">
+{`📂 face_mask_detection/
+│-- dataset/           # Dataset for training & testing
+│-- models/            # Saved models
+│-- notebooks/         # Jupyter notebooks for training & evaluation
+│-- scripts/           # Python scripts for inference & testing
+│-- README.md          # Project documentation`}
+                          </pre>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <ListChecks className="mr-2 h-5 w-5" /> Model Improvements
+                    </h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <ul className="space-y-3">
+                          <li className="flex items-start">
+                            <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">1</span>
+                            <div>
+                              <h3 className="font-medium">Increased Model Depth</h3>
+                              <p className="text-sm text-gray-600">More layers for better feature extraction</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">2</span>
+                            <div>
+                              <h3 className="font-medium">Batch Normalization</h3>
+                              <p className="text-sm text-gray-600">Stabilizes and speeds up training</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">3</span>
+                            <div>
+                              <h3 className="font-medium">Dropout Regularization</h3>
+                              <p className="text-sm text-gray-600">Reduces overfitting</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">4</span>
+                            <div>
+                              <h3 className="font-medium">Advanced Data Augmentation</h3>
+                              <p className="text-sm text-gray-600">Makes model robust to variations</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">5</span>
+                            <div>
+                              <h3 className="font-medium">Learning Rate Scheduling</h3>
+                              <p className="text-sm text-gray-600">Dynamically adjusts learning rate</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <Camera className="mr-2 h-5 w-5" /> Model Training & Evaluation
+                    </h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-6">
+                          <div className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">1</span>
+                            <div>
+                              <h3 className="font-medium">Training</h3>
+                              <p className="text-sm text-gray-600">The improved CNN model is trained with augmented images</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">2</span>
+                            <div>
+                              <h3 className="font-medium">Accuracy/Loss Graphs</h3>
+                              <p className="text-sm text-gray-600">Visualize training progress</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">3</span>
+                            <div>
+                              <h3 className="font-medium">Precision, Recall, F1-Score</h3>
+                              <p className="text-sm text-gray-600">Evaluate model performance</p>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <Database className="mr-2 h-5 w-5" /> Technologies Used
+                    </h2>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">TensorFlow</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Keras</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">OpenCV</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">NumPy</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Pandas</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Matplotlib</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Seaborn</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Scikit-Learn</span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <Award className="mr-2 h-5 w-5" /> Project Status
+                    </h2>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
+                      <div className="bg-green-500 rounded-full w-3 h-3 mr-2"></div>
+                      <p className="text-green-800">Model is trained and predicting correctly!</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4">Next Steps</h2>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Deploy the model for real-time detection</li>
+                      <li>Further optimize hyperparameters for better accuracy</li>
                     </ul>
                   </div>
                 </div>
