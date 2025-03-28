@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3, Calendar } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Code, FileCode, BarChart3, Calendar, Cpu, MessageSquare, FileText, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useImageLoad } from '@/lib/animations';
 import NavBar from '@/components/NavBar';
@@ -271,6 +271,163 @@ const ProjectDetails = () => {
                       <li>Implement XGBoost or Gradient Boosting for better accuracy</li>
                       <li>Add Hyperparameter tuning</li>
                       <li>Deploy the model as a web application</li>
+                    </ul>
+                  </div>
+                </div>
+              ) : slug === 'ai-chatbot-gemini' ? (
+                <div className="space-y-8">
+                  <div>
+                    <h2 className="heading-md mb-4">Key Features</h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>AI-Powered Responses via Gemini API</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Multiple Conversation Modes</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Markdown-Styled Note Saving</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>PDF Export Functionality</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Customizable Themes</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">✓</span>
+                            <span>Custom Bot Presets</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <MessageSquare className="mr-2 h-5 w-5" /> Conversation Modes
+                    </h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="p-4 border rounded-lg bg-gray-50">
+                            <h3 className="font-medium mb-2">Study Partner</h3>
+                            <p className="text-sm text-gray-600">AI assistant for academic studies and learning assistance</p>
+                          </div>
+                          <div className="p-4 border rounded-lg bg-gray-50">
+                            <h3 className="font-medium mb-2">Coding Assistant</h3>
+                            <p className="text-sm text-gray-600">Help with programming, debugging, and technical problems</p>
+                          </div>
+                          <div className="p-4 border rounded-lg bg-gray-50">
+                            <h3 className="font-medium mb-2">Story Generator</h3>
+                            <p className="text-sm text-gray-600">Creates creative narratives and stories from prompts</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <FileCode className="mr-2 h-5 w-5" /> Project Structure
+                    </h2>
+                    <Card className="overflow-hidden">
+                      <CardContent className="pt-6">
+                        <div className="text-sm text-gray-700 font-mono bg-gray-50 p-4 rounded-lg overflow-x-auto">
+                          <pre className="text-left whitespace-pre-line">
+{`📂 ai-chatbot-gemini/
+│-- 📄 main.py               # Main chatbot script
+│-- 📄 requirements.txt      # Dependencies
+│-- 📂 assets/               # Store UI assets (if any)
+│-- 📄 README.md             # Documentation`}
+                          </pre>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <Zap className="mr-2 h-5 w-5" /> Getting Started
+                    </h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <ol className="space-y-4 list-decimal pl-6">
+                          <li>
+                            <h3 className="font-medium">Clone the Repository</h3>
+                            <div className="bg-gray-100 p-3 rounded mt-2 text-sm font-mono overflow-x-auto">
+                              git clone https://github.com/Aditya-46-Raj/ai-chatbot-gemini.git
+                            </div>
+                          </li>
+                          <li>
+                            <h3 className="font-medium">Install Dependencies</h3>
+                            <div className="bg-gray-100 p-3 rounded mt-2 text-sm font-mono overflow-x-auto">
+                              pip install -r requirements.txt
+                            </div>
+                            <p className="text-sm text-gray-600 mt-2">
+                              This installs: requests, tkinter, fpdf
+                            </p>
+                          </li>
+                          <li>
+                            <h3 className="font-medium">Add Your Gemini API Key</h3>
+                            <p className="text-sm text-gray-600">
+                              Get an API key from Google AI Studio and add it to main.py
+                            </p>
+                          </li>
+                          <li>
+                            <h3 className="font-medium">Run the Application</h3>
+                            <div className="bg-gray-100 p-3 rounded mt-2 text-sm font-mono overflow-x-auto">
+                              python main.py
+                            </div>
+                          </li>
+                        </ol>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <FileText className="mr-2 h-5 w-5" /> Using the Chatbot
+                    </h2>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <ol className="space-y-2 list-decimal pl-6">
+                          <li>Enter your text in the input field</li>
+                          <li>Select a bot preset from the dropdown menu</li>
+                          <li>Click Send to generate a response</li>
+                          <li>Save important responses to the Notes Section</li>
+                          <li>Export Notes as a PDF for future reference</li>
+                        </ol>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4 flex items-center">
+                      <Cpu className="mr-2 h-5 w-5" /> Technologies Used
+                    </h2>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Tkinter</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Gemini API</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Requests</span>
+                      <span className="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full">FPDF</span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h2 className="heading-md mb-4">Future Improvements</h2>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Add Voice Input & Output</li>
+                      <li>Enhance UI with more customization</li>
+                      <li>Allow integration with other AI models</li>
                     </ul>
                   </div>
                 </div>

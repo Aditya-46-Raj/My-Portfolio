@@ -105,14 +105,94 @@ The Neural Network model significantly outperforms other models with 88.05% accu
   },
   {
     id: '3',
-    title: 'Data Visualization Dashboard',
-    slug: 'data-visualization-dashboard',
-    description: 'Interactive dashboard for visualizing complex datasets.',
-    shortDescription: 'Interactive web-based dashboard for exploring and visualizing complex datasets.',
-    imageUrl: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
-    tags: ['Data Visualization', 'Web Development', 'D3.js'],
-    demoUrl: 'https://data-viz-dashboard.example.com',
-    content: 'Detailed explanation about the data visualization project...'
+    title: 'AI Chatbot using Gemini API',
+    slug: 'ai-chatbot-gemini',
+    description: 'An AI-powered chatbot built using Tkinter and Google\'s Gemini API, offering multiple conversation modes, markdown-styled note-saving, and PDF export functionality. The chatbot supports various modes including Study Partner, Coding Assistant, Story Generator, and more, with customizable themes and bot presets.',
+    shortDescription: 'AI-powered chatbot with multiple modes, markdown notes, and PDF export.',
+    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
+    tags: ['Artificial Intelligence', 'Python', 'Tkinter', 'Gemini API', 'NLP'],
+    githubUrl: 'https://github.com/Aditya-46-Raj/ai-chatbot-gemini',
+    demoUrl: '',
+    content: `## 🤖 AI Chatbot using Gemini API
+
+An AI-powered chatbot built using Tkinter and Google's Gemini API, offering multiple conversation modes, markdown-styled note-saving, and PDF export functionality.
+
+### 🌟 Features
+
+- **AI-Powered Responses** – Uses Gemini API to generate intelligent responses.
+- **Multiple Modes** – Choose from Study Partner, Coding Assistant, Story Generator, and more.
+- **Markdown-Styled Notes** – Save responses with bold formatting, maintaining markdown structure.
+- **PDF Export** – Save your notes into a cleanly formatted PDF.
+- **Customizable Themes** – Switch between Light, Dark, and System themes.
+- **Add New Bot Presets** – Define custom bot personalities for different tasks.
+
+### 🚀 Getting Started
+
+#### 1️⃣ Clone the Repository
+\`\`\`bash
+git clone https://github.com/Aditya-46-Raj/ai-chatbot-gemini.git
+cd ai-chatbot-gemini
+\`\`\`
+
+#### 2️⃣ Install Dependencies
+Make sure you have Python 3.8+ installed, then run:
+
+\`\`\`bash
+pip install -r requirements.txt
+\`\`\`
+
+This will install the required libraries:
+- requests → For API communication
+- tkinter → For the GUI
+- fpdf → To generate PDF exports
+
+#### 🔑 Adding Your Gemini API Key
+
+To use the chatbot, you need to add your Gemini API Key.
+
+**Steps to Get a Gemini API Key:**
+1. Go to Google AI Studio and sign in.
+2. Navigate to API Keys in your account settings.
+3. Generate a new API key.
+
+**Add the API Key to the Code:**
+1. Open main.py in a text editor.
+2. Find this line: \`API_KEY = "YOUR_API_KEY_HERE"\`
+3. Replace "YOUR_API_KEY_HERE" with your actual API key.
+
+### 🛠 How to Use
+
+1. Run the Application: \`python main.py\`
+2. Enter your text, select a bot preset, and hit Send.
+3. Save important responses to the Notes Section.
+4. Export Notes as a PDF for future reference.
+
+### 📂 Project Structure
+
+\`\`\`
+📂 ai-chatbot-gemini/
+│-- 📄 main.py  # Main chatbot script
+│-- 📄 requirements.txt  # Dependencies
+│-- 📂 assets/  # Store UI assets (if any)
+│-- 📄 README.md  # Documentation
+\`\`\`
+
+### 📌 Future Improvements
+
+- Add Voice Input & Output
+- Enhance UI with more customization
+- Allow integration with other AI models
+
+### 🤝 Contributing
+
+- Fork the repository
+- Create a new branch (feature-xyz)
+- Commit changes and submit a pull request
+
+### 📜 License
+
+This project is open-source under the MIT License.`,
+    featured: false
   },
   {
     id: '4',
