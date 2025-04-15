@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Twitter, Database, MessageSquare, ExternalLink } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Twitter, Database, MessageSquare, ExternalLink, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useSmoothScroll } from '@/lib/animations';
@@ -104,9 +104,16 @@ const NavBar = () => {
           {/* Theme Toggle */}
           <ThemeToggle />
 
-          <Button size="sm" className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-            Resume <ExternalLink className="ml-1 h-4 w-4" />
-          </Button>
+          <a 
+            href="/resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex"
+          >
+            <Button size="sm" className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              Resume <FileText className="ml-1 h-4 w-4" />
+            </Button>
+          </a>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -208,9 +215,16 @@ const NavBar = () => {
             </a>
           </div>
 
-          <Button size="lg" className="mt-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all">
-            Resume <ExternalLink className="ml-1 h-4 w-4" />
-          </Button>
+          <a 
+            href="/resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mt-4"
+          >
+            <Button size="lg" className="w-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all">
+              Resume <FileText className="ml-1 h-4 w-4" />
+            </Button>
+          </a>
         </nav>
       </div>
     </header>
