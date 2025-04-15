@@ -1,11 +1,11 @@
-
+import React from 'react';
 import { useState } from 'react';
 import { useInView } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Github, Linkedin, Mail, Send, Twitter, Database, Code, MessageSquare } from 'lucide-react';
-import { toast } from 'sonner'; // Changed from '@/components/ui/sonner' to 'sonner'
+import { Github, Linkedin, Mail, Send, Twitter, Database, FileDown, MessageSquare } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
@@ -35,7 +35,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding px-6 md:px-10 relative overflow-hidden">
-      {/* Background elements for Contact section */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-100 rounded-full opacity-20 blur-3xl animate-float" />
         <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-purple-100 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
@@ -182,10 +181,19 @@ const Contact = () => {
                 <p className="body-sm text-gray-600 mb-4">
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
-                <Button variant="outline" className="rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 group">
-                  Download Resume
-                  <Code className="ml-2 h-4 w-4 group-hover:animate-pulse" />
-                </Button>
+                <a 
+                  href="/resume.pdf" 
+                  download="Aditya_Raj_Resume.pdf"
+                  className="inline-block"
+                >
+                  <Button 
+                    variant="outline" 
+                    className="rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 group"
+                  >
+                    Download Resume
+                    <FileDown className="ml-2 h-4 w-4 group-hover:animate-pulse" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
