@@ -76,7 +76,7 @@ const Hero = () => {
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 shadow-2xl transition-all hover:shadow-blue-500/20">
               <div className="aspect-square rounded-xl overflow-hidden relative">
                 <img 
-                  src="/lovable-uploads/60cd379d-9991-4338-b6bd-e07ec4892b4d.png" 
+                  src={`${import.meta.env.BASE_URL}lovable-uploads/60cd379d-9991-4338-b6bd-e07ec4892b4d.png`}
                   alt="Aditya Raj Profile Image" 
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -84,7 +84,7 @@ const Hero = () => {
                     console.error("Image failed to load", e);
                     const target = e.target as HTMLImageElement;
                     target.onerror = null;
-                    target.src = "/placeholder.svg";
+                    target.src = `${import.meta.env.BASE_URL}placeholder.svg`;
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 hover:from-blue-500/20 hover:to-purple-600/20 transition-all duration-500"></div>

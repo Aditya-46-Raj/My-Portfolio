@@ -105,7 +105,7 @@ const NavBar = () => {
           <ThemeToggle />
 
           <a 
-            href="/resume.pdf" 
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex"
@@ -216,7 +216,7 @@ const NavBar = () => {
           </div>
 
           <a 
-            href="/resume.pdf" 
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             target="_blank" 
             rel="noopener noreferrer"
             className="mt-4"

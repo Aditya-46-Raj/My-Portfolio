@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { useInView } from '@/lib/animations';
@@ -182,7 +183,7 @@ const Contact = () => {
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                 </p>
                 <a 
-                  href="/resume.pdf" 
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
                   download="Aditya_Raj_Resume.pdf"
                   className="inline-block"
                 >
